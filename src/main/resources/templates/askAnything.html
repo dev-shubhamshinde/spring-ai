@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{_basepage :: layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+<!-- Contact Section -->
+<section id="contact" class="contact section">
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <div><span>Let's</span> <span class="description-title">Connect</span></div>
+    </div><!-- End Section Title -->
+
+    <div class="container mt-2 form-container-overlap">
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-lg-10">
+                <div class="contact-form-wrapper">
+                    <div th:if="${message}" th:classappend="${message.type}" class="alert alert-dismissible fade show"
+                         role="alert">
+                        <strong th:text="${message.content}"></strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <h2 class="text-center mb-4">Get in Touch</h2>
+                    <form id="chat-form" class="php-email-form">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <div class="input-with-icon">
+                                        <i class="bi bi-chat-dots message-icon"></i>
+                                        <textarea class="form-control" id="question" placeholder="Ask Anything..."
+                                                  style="height: 80px" required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <div class="input-with-icon">
+                                        <i class="bi bi-chat-dots message-icon"></i>
+                                        <textarea class="form-control" id="answer" readonly
+                                                  style="height: 280px"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-submit">SEND</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        const form = document.getElementById('chat-form');
+        const questionInput = document.getElementById('question');
+        const answerArea = document.getElementById('answer');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const question = questionInput.value.trim();
+            if (!question) return;
+
+            answerArea.value = 'Thinking...\n';
+
+            fetch('/askAnythingStream', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'text/plain'
+                },
+                body: question
+            }).then(response => {
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+                let partial = '';
+
+                function read() {
+                    return reader.read().then(({ done, value }) => {
+                        if (done) return;
+
+                        const chunk = decoder.decode(value, { stream: true });
+                        partial += chunk;
+
+                        // Process each "data:" line in SSE format
+                        const lines = partial.split('\n');
+                        partial = lines.pop(); // in case it's incomplete, keep for next chunk
+
+                        for (const line of lines) {
+                            if (line.startsWith('data:')) {
+                                const content = line.substring(5).trim();
+                                if (content) {
+                                    answerArea.value += content + ' ';
+                                    answerArea.scrollTop = answerArea.scrollHeight;
+                                }
+                            }
+                        }
+
+                        return read();
+                    });
+                }
+
+                return read();
+            }).catch(err => {
+                answerArea.value = 'Error: ' + err.message;
+            });
+        });
+
+    </script>
+</section><!-- /Contact Section -->
+
+</body>
+</html>

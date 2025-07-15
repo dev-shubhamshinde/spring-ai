@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{_basepage :: layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+<!-- Hero Section -->
+<section id="hero" class="hero section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 content-col" data-aos="fade-up">
+                <div class="content">
+                    <div class="agency-name">
+                        <h5>OUR AGENCY</h5>
+                    </div>
+
+                    <div class="main-heading">
+                        <h1>CREATIVE <br>DESIGN</h1>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="description">
+                        <p>Discover innovative strategies for impactful visual communication. We transform ideas
+                            into compelling realities, ensuring your brand stands out in a crowded marketplace. Our
+                            dedicated team leverages cutting-edge techniques to deliver exceptional results that
+                            resonate with your audience.</p>
+                    </div>
+
+                    <div class="cta-button">
+                        <a href="#services" class="btn">
+                            <span>EXPLORE SERVICES</span>
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5" data-aos="zoom-out">
+                <div class="visual-content">
+                    <div class="fluid-shape">
+                        <img src="assets/img/abstract/abstract-1.webp" alt="Abstract Fluid Shape" class="fluid-img">
+                    </div>
+
+                    <div class="stats-card">
+                        <div class="stats-number">
+                            <h2>5K</h2>
+                        </div>
+                        <div class="stats-label">
+                            <p>Successful Campaigns</p>
+                        </div>
+                        <div class="stats-arrow">
+                            <a href="#portfolio"><i class="bi bi-arrow-up-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- /Hero Section -->
+<!-- Services Section -->
+<section id="services" class="services section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <div><span>Check Our</span> <span class="description-title">Services</span></div>
+    </div><!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card position-relative z-1">
+                    <div class="service-icon">
+                        <i class="bi bi-palette"></i>
+                    </div>
+                    <a href="service-details.html"
+                       class="card-action d-flex align-items-center justify-content-center rounded-circle">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a>
+                    <h3>
+                        <a href="service-details.html">
+                            Ask <span>Anything</span>
+                        </a>
+                    </h3>
+                    <p>
+                        Nulla facilisi. Maecenas eget magna neque. Suspendisse potenti. Curabitur eleifend nisi non
+                        magna vulputate, vel condimentum libero tempus. Proin consectetur feugiat diam.
+                    </p>
+                    <div class="mt-3 d-flex justify-content-end">
+                        <a th:href="@{/askAnything}">
+                            <button type="button" class="btn btn-warning">Check Now</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-card position-relative z-1">
+                    <div class="service-icon">
+                        <i class="bi bi-gem"></i>
+                    </div>
+                    <a href="service-details.html"
+                       class="card-action d-flex align-items-center justify-content-center rounded-circle">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a>
+                    <h3>
+                        <a href="service-details.html">
+                            Design <span>systems</span>
+                        </a>
+                    </h3>
+                    <p>
+                        Praesent euismod varius tellus, vel bibendum nunc interdum at. Donec vehicula diam vel metus
+                        venenatis convallis. Aliquam erat volutpat. Etiam viverra magna sit amet.
+                    </p>
+                    <div class="mt-3 d-flex justify-content-end">
+                        <a th:href="@{/askAnything}">
+                            <button type="button" class="btn btn-warning">Check Now</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-card position-relative z-1">
+                    <div class="service-icon">
+                        <i class="bi bi-megaphone"></i>
+                    </div>
+                    <a href="service-details.html"
+                       class="card-action d-flex align-items-center justify-content-center rounded-circle">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a>
+                    <h3>
+                        <a href="service-details.html">
+                            Marketing <span>strategies</span>
+                        </a>
+                    </h3>
+                    <p>
+                        Vivamus tempor velit id magna dictum, sed fermentum nisi faucibus. Integer nec pretium
+                        sapien. Fusce tincidunt ligula et purus consequat, ac pellentesque nulla eleifend.
+                    </p>
+                    <div class="mt-3 d-flex justify-content-end">
+                        <a th:href="@{/askAnything}">
+                            <button type="button" class="btn btn-warning">Check Now</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card position-relative z-1">
+                    <div class="service-icon">
+                        <i class="bi bi-code-slash"></i>
+                    </div>
+                    <a href="service-details.html"
+                       class="card-action d-flex align-items-center justify-content-center rounded-circle">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a>
+                    <h3>
+                        <a href="service-details.html">
+                            Digital <span>platforms</span>
+                        </a>
+                    </h3>
+                    <p>
+                        Cras fermentum odio eu feugiat malesuada. Vestibulum ante ipsum primis in faucibus orci
+                        luctus et accumsan cursus. Morbi placerat nulla vel nunc viverra accumsan.
+                    </p>
+                    <div class="mt-3 d-flex justify-content-end">
+                        <a th:href="@{/askAnything}">
+                            <button type="button" class="btn btn-warning">Check Now</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-card position-relative z-1">
+                    <div class="service-icon">
+                        <i class="bi bi-graph-up"></i>
+                    </div>
+                    <a href="service-details.html"
+                       class="card-action d-flex align-items-center justify-content-center rounded-circle">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a>
+                    <h3>
+                        <a href="service-details.html">
+                            Growth <span>acceleration</span>
+                        </a>
+                    </h3>
+                    <p>
+                        Aenean vel augue vel nisi bibendum posuere. Phasellus in lacus quis urna sodales dignissim.
+                        Duis aliquam libero eget risus facilisis. Quisque eget libero vel nisl fringilla.
+                    </p>
+                    <div class="mt-3 d-flex justify-content-end">
+                        <a th:href="@{/askAnything}">
+                            <button type="button" class="btn btn-warning">Check Now</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-card position-relative z-1">
+                    <div class="service-icon">
+                        <i class="bi bi-camera-video"></i>
+                    </div>
+                    <a href="service-details.html"
+                       class="card-action d-flex align-items-center justify-content-center rounded-circle">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a>
+                    <h3>
+                        <a href="service-details.html">
+                            Media <span>solutions</span>
+                        </a>
+                    </h3>
+                    <p>
+                        Etiam efficitur lacus in diam finibus, nec ultrices est sagittis. Maecenas elementum magna
+                        sed risus faucibus, nec commodo purus facilisis. Vestibulum accumsan magna.
+                    </p>
+                    <div class="mt-3 d-flex justify-content-end">
+                        <a th:href="@{/askAnything}">
+                            <button type="button" class="btn btn-warning">Check Now</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section><!-- /Services Section -->
+
+
+</body>
+</html>
